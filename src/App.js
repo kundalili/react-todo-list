@@ -1,16 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button, TextField } from '@mui/material';
 import AddTaskIcon from '@mui/icons-material/AddTask';
 import CancelIcon from '@mui/icons-material/Cancel';
 
 function App() {
+ // states - task holds the input value and taskArray all input toDos
   const [task, setTask] = useState({
     title: '',
     description: '',
   });
+  const [taskArray, setTaskArray] = useState([])
 
+  // useEffect - set localStorage ---------------------------------------
+  useEffect(() => {
+    localStorage.setItem("task", JSON.stringify(taskArray))
+  }, [taskArray])
+  
+  //store each keypress in the task depending on the field entered-------
   const handleChange = (e) => {
-    // console.log(task);
     const { value } = e.target;
     setTask({
       ...task,
@@ -18,8 +25,9 @@ function App() {
     });
   };
 
+  //on submit
   const handleSubmit = () => {
-    localStorage.setItem('tasks', JSON.stringify(task));
+    setTaskArray(prevState =>  [...prevState, task])
     handleCancel();
   }
 
@@ -31,7 +39,7 @@ function App() {
   }
   return (
     <div className="flex justify-center items-center mt-10">
-      <div className="w-6/12 border-gray-400 bg-gray-200 flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-center items-center">
         <div className="w-full flex flex-wrap justify-center ">
           <TextField
             id="outlined-basic"
@@ -40,7 +48,7 @@ function App() {
             variant="outlined"
             value={task.title}
             onChange={handleChange}
-            className="w-6/12 bg-teal-200"
+            className="w-9/12 bg-gray-200"
           />
           <div className="w-full flex flex-wrap justify-center">
             <TextField
@@ -52,16 +60,16 @@ function App() {
               value={task.description}
               onChange={handleChange}
               variant="outlined"
-              className="w-6/12 bg-teal-200"
+              className="w-9/12 bg-gray-200"
             />
           </div>
 
         </div>
-        <div className="w-3/12 flex justify-between">
+        <div className="w-6/12 gap-2 flex justify-between mt-5">
           <Button
             variant="contained"
             startIcon={<AddTaskIcon />}
-            className="bg-teal-300 text-black hover:bg-teal-700 hover:text-white"
+            className="bg-teal-200 text-black hover:bg-teal-700 hover:text-white"
             onClick={handleSubmit}
           >
             Save
@@ -69,7 +77,7 @@ function App() {
           <Button
             variant="contained"
             startIcon={<CancelIcon />}
-            className="bg-teal-300 text-black  hover:bg-teal-700 hover:text-white"
+            className="bg-teal-200 text-black  hover:bg-teal-700 hover:text-white"
             onClick={handleCancel}
           >
             Cancel
