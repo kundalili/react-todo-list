@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { StyledEngineProvider } from '@mui/material';
-import Editor from './App';
+import Editor from './Header';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
