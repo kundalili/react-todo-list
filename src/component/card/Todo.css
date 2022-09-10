@@ -1,0 +1,51 @@
+.todo {
+    display: flex;
+    /* background-color: #078A93; */
+    letter-spacing: 0.1rem;
+    color: #078A93;
+    border: #078A93 solid;
+    font-weight: 600;
+    opacity: 90%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    padding-left: 10px;
+}
+.complete-btn {
+    background: #078A93;
+    opacity: 50%;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: solid;
+    border-radius: 6px;
+    margin: 5px;
+    padding-top: 5px;
+
+  }
+
+/* .delete-btn {
+    background-color: #078A93;
+    opacity: 50%;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: solid;
+    border-radius: 6px;
+    margin: 5px;
+    padding-top: 5px;
+
+
+
+}
+.edit-btn {
+  background-color: #078A93;
+  color: #fff;
+  opacity: 50%;
+  border: solid;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 5px;
+  padding-top: 5px;
+} */

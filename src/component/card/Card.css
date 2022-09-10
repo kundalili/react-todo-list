@@ -1,0 +1,10 @@
+.todo-list {
+    list-style: none outside none;
+    display: flex;
+    justify-content: space-between;
+    align-content:space-between;
+    flex-direction: column;
+    flex-basis: auto;
+    gap: 10px;
+    padding-inline-start: 0px;
+}
